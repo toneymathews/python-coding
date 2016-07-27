@@ -1,0 +1,114 @@
+#!/bin/python3
+
+
+import sys
+
+j =" "
+n = int(input().strip())
+
+arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
+
+for i in range(0,len(arr)):
+ 
+	j = j + str(arr[n-i-1]) +" "
+	
+print (j)
+
+
+#!/bin/python3
+
+
+import sys
+def hourglass(i,j):
+    return (arr[i-1][j-1]+arr[i-1][j]+arr[i-1][j+1]+arr[i][j]+arr[i+1][j-1]+arr[i+1][j]+arr[i+1][j+1])
+
+
+arr = []
+sum = []
+max=0
+for arr_i in range(6):
+   arr_t = [int(arr_temp) for arr_temp in input().strip().split(' ')]
+   arr.append(arr_t)
+#print (arr)
+#print (arr[0][1])
+for i in range(6):
+    for j in range(6):
+        if (i-1 > -1 and i+1 < 6):
+            if (j-1 > -1 and j+1 < 6):
+                k=hourglass(i,j)
+                if k > max:
+                    max=k
+print (max)
+
+
+
+Dynamic array # not fixed
+#!/bin/python3
+import sys
+temp = input()
+N = int(temp.split()[0])
+Q = int(temp.split()[1])
+seqList = []
+query = []
+lastAns= int(0)
+for query_i in range(Q):
+   query_t = [int(query_temp) for query_temp in input().strip().split(' ')]
+   query.append(query_t)
+#print (N)
+#print (Q)
+#print (query)
+for i in query:
+    if i[0] == 1:
+        pos = int((bool(i[1]) ^ bool(lastAns))%N)
+        seqList[pos].append(i[2])
+        
+    if i[0] == 2:
+        pos = int((bool(i[1]) ^ bool(lastAns))%N)
+        lastAns=int(i[2])%len(i)
+        print (lastAns)
+
+
+
+
+rotate an array by 'd' steps to left
+def rotate(l,n):
+    return l[n:] + l[:n]
+
+temp = input()
+N = int(temp.split()[0])
+d = int(temp.split()[1])
+l = [int(arr_temp) for arr_temp in input().strip().split(' ')]
+m=(rotate(l,d))
+final =""
+for i in range(N):
+    final = final + str(m[i])+" "
+print (final)
+print (l[d:])
+        
+
+
+
+
+
+#number of times a string occurs
+import sys
+
+n =int(input().strip())
+strings = []   #list [] string ""
+for i in range(n):
+    temp = input()
+    strings.append(temp)
+test =int(input().strip())
+sample = []
+for i in range(test):
+    temp = input()
+    sample.append(temp)
+#print (strings + sample)
+num = 0
+for i in sample:
+    for j in strings:
+        c = i in j
+        num = num + int(c)
+    print (num)
+    num = 0
+                
